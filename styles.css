@@ -5,10 +5,11 @@
 /* COLOR VARIABLES
 ----------------------------------------------- */
 :root {
-  --mid: #eb8957;
-  --mid2:sandybrown;
+  --mid: #418870;
+  --mid2:#A3351A;
   --dark: #0b3527;
-  --light: #FDFDFD;
+  --light: #b1f4de;
+  --light2: #ee6b4b;
 }
 
 
@@ -22,13 +23,51 @@
 }
 
 body {
-  background: var(--light); 
+  align-items: center;
+  justify-content: center;
   color: var(--dark);
   margin: 0;
   padding: 0; 
   line-height: 1.3;
   font-size: 16px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', inter, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ 
+.album {
+  position: relative;
+  width: 850px;
+  height: 850px;
+  display:flex;
+  flex-direction: column;  
+  margin: auto;
+}
+
+.album span{
+  position: absolute;
+  top: 0;
+  left: calc(100% / 12 * var(--i));
+  width: calc(100% / 12);
+  height:100%;
+}
+
+.album img{
+position: absolute;
+top: 0;
+left: 0;
+
+height: 100%;
+object-fit: cover ;
+opacity: 0;
+pointer-events: none;
+
+}
+
+.album img:nth-child(2),
+.album span:hover + img {
+
+  opacity: 1;
+
 }
 
 img {
@@ -62,8 +101,11 @@ main {
 }
 
 
-
-
+hr {
+  border-color: var(--mid2);
+  height: 5px;
+  background-color: var(--mid2);
+}
 
 
 
@@ -77,13 +119,15 @@ a:hover {
   text-decoration: underline;
 }
 
+/*blog title */
 h1 {
   color:var(--light);
   font-size: 3em;
   font-weight: 800;
-  text-shadow: 5px 5px 10px var(--mid);
+  text-shadow: -5px 5px 10px var(--mid);
 }
 
+/*section headings */
 h2 {
   font-size: 1.5em;
   margin: 1em 0;
@@ -95,12 +139,12 @@ h3{
   font-size: 1em;
   font-weight: 700;
   margin-left: 16em;
-  color: var(--mid);
+  color: var(--light2);
 }
 
 p {
   margin: 0 0 1em 0;
-  color: var(--light);
+  color: var(--mid);
 }
 
 
@@ -110,7 +154,7 @@ p {
 /* POST
 ----------------------------------------------- */
 article {
-  border: 8px solid var(--mid2);
+  border: 8px solid var(--mid);
   padding: 2em;
   margin: 0.5em;
   color: var(--mid);
@@ -119,7 +163,7 @@ article {
 
 time {
   display: block;
-  color:var(--mid2);
+  color:var(--light2);
   margin-top: 4em;
   text-align: right;
 }
@@ -161,7 +205,7 @@ time {
         position: absolute;
         top: 15px;
         left: 15px;
-        color:var(--mid);
+        color:var(--mid2);
         font-size: 20px;
         font-weight: 800;
       }
@@ -169,9 +213,8 @@ time {
       /* Closable button inside the image */
       .closebtn {
         position: absolute;
-        top: 10px;
         right: 15px;
-        color:var(--mid);
+        color:var(--mid2);
         font-size: 35px;
         cursor: pointer;
       }
@@ -201,7 +244,7 @@ time {
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: var(--light2);
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -222,7 +265,7 @@ time {
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
+  color: white;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -246,14 +289,14 @@ time {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: var(--light2);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: var(--mid2);
 }
 
 /* Fading animation */
@@ -268,6 +311,52 @@ time {
 }
 /* END---this is for post 5!!!!!*/
 
+
+
+.shake img:hover{
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+
+
+.face{
+    animation-name: bouncing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in-out; 
+      
+  }
+
+@keyframes bouncing{
+  from { transform: translate3d(0, 0, 0);}
+  to { transform: translate3d(0, 50px, 0);}
+}
+  
+
+
+
+
+
+
+
+
+
 /* MEDIA QUERIES
 ----------------------------------------------- */
 
@@ -279,5 +368,11 @@ time {
   }
 
 }
+
+
+
+
+
+
 
 
